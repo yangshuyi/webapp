@@ -1,0 +1,39 @@
+{
+    "status":1,
+    "message":"process OK",
+    "object":[
+        {
+            "name":"Module 1",
+            "selected":true,
+            "items":[
+                {
+                    "name":"DepartmentPojo",
+                    "actionUrl":"/jsp/organization/applicationStatistics.jsp",
+                    "imageUrl":"/image/user/user.png"
+                },
+                {
+                    "name":"item 1.2",
+                    "actionUrl":"actionUrl",
+                    "imageUrl":"/image/user/user.png"
+                }
+            ]
+        },
+        {
+            "name":"Module 2",
+            "selected":false,
+            "items":[
+                {
+                    "name":"item 2.1",
+                    "actionUrl":"actionUrl",
+                    "imageUrl":"/image/user/user.png"
+                },
+                {
+                    "name":"item 2.2",
+                    "actionUrl":"actionUrl",
+                    "imageUrl":"/image/user/user.png"
+                }
+            ]
+        }
+    ]
+
+}

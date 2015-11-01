@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project name="build-classpath">
+	<!-- basedir:project 基目录的绝对路径； -->
+	<!-- ant.file:buildfile的绝对路径； -->
+	<!-- ant.version:Ant 的版本信息； -->
+	<!-- ant.version:Ant 的版本信息； -->
+	<!-- ant.project.name:当前指定的project的名字； -->
+	<!-- ant.java.version:Ant 检测到的JDK版本； -->
+	<!--<property file="build.properties" />-->
+
+	<property name="dir-src-java" value="${basedir}/src/main/java" />
+	<property name="dir-src-jsp" value="${basedir}/src/main/webapp/jsp" />
+	<property name="dir-src-json" value="${basedir}/src/main/webapp/json" />
+	<property name="dir-src-js" value="${basedir}/src/main/webapp/js" />
+	<property name="dir-src-image" value="${basedir}/src/main/webapp/image" />
+	<property name="dir-src-resources" value="${basedir}/src/main/resources" />
+
+	<property name="dir-target-classes" value="${basedir}/target/EasyUI-1.0/WEB-INF/classes" />
+	<property name="dir-target-jsp" value="${basedir}/target/EasyUI-1.0/jsp" />
+	<property name="dir-target-json" value="${basedir}/target/EasyUI-1.0/json" />
+	<property name="dir-target-js" value="${basedir}/target/EasyUI-1.0/js" />
+	<property name="dir-target-image" value="${basedir}/target/EasyUI-1.0/image" />
+
+	<!--<property name="lib.ant-contrib" value="${dir-lib-ant}/ant-contrib.jar" />-->
+</project>

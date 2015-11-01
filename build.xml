@@ -1,0 +1,27 @@
+﻿<project name="build" default="build" basedir=".">
+    <import file="build-classpath.xml" />
+
+    <target name="execute">
+        <antcall target="refresh-js" />
+		<antcall target="refresh-jsp" />
+		<antcall target="refresh-json" />
+    </target>
+
+    <target name="refresh-js" description="copy js into target">
+        <delete dir="${dir-target-js}"/>
+        <copydir src="${dir-src-js}" dest="${dir-target-js}"/>
+	</target>
+
+    <target name="refresh-jsp" description="copy jsp into target">
+        <delete dir="${dir-target-jsp}"/>
+        <copydir src="${dir-src-jsp}" dest="${dir-target-jsp}"/>
+	</target>
+
+    <target name="refresh-json" description="copy json into target">
+        <delete dir="${dir-target-json}"/>
+        <copydir src="${dir-src-json}" dest="${dir-target-json}"/>
+	</target>
+
+</project>
+
+

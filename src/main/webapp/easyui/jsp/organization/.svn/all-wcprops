@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/superyangworksp/!svn/ver/64/EasyUI/src/main/webapp/jsp/organization
+END
+editEmployee.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/superyangworksp/!svn/ver/61/EasyUI/src/main/webapp/jsp/organization/editEmployee.jsp
+END
+editDepartment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/superyangworksp/!svn/ver/64/EasyUI/src/main/webapp/jsp/organization/editDepartment.jsp
+END
+employee.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/superyangworksp/!svn/ver/61/EasyUI/src/main/webapp/jsp/organization/employee.jsp
+END
+department.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/superyangworksp/!svn/ver/64/EasyUI/src/main/webapp/jsp/organization/department.jsp
+END
+departmentTreeView.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/superyangworksp/!svn/ver/57/EasyUI/src/main/webapp/jsp/organization/departmentTreeView.jsp
+END
