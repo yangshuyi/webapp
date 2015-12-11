@@ -8,7 +8,7 @@
     <!-- spring 配置文件位置 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring.xml,classpath:spring-hibernate.xml</param-value>
+        <param-value>classpath:spring.xml,classpath:spring-hibernate.xml,classpath:spring-mongodb.xml</param-value>
     </context-param>
 
     <!-- spring 监听器 -->

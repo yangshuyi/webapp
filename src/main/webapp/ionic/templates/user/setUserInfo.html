@@ -1,0 +1,26 @@
+<ion-view>
+    <ion-content class="">
+        <ul class="list">
+            <li class="item item-icon-right" style="">
+                <p><span style="width:200px">用户名</span><span>{{userInfo.userName}}</span></p>
+                <span class="icon icon-large ion-chevron-right padding-horizontal"></span>
+            </li>
+            <li class="item item-icon-right" style="">
+                <p><span style="width:200px">绑定手机</span><span>{{userInfo.mobileNo}}</span></p>
+                <span class="icon icon-large ion-chevron-right padding-horizontal"></span>
+            </li>
+            <li class="item item-icon-right" style="">
+                <p><span style="width:200px">绑定邮箱</span><span>{{userInfo.email}}</span></p>
+                <span class="icon icon-large ion-chevron-right padding-horizontal"></span>
+            </li>
+        </ul>
+        <button class="button button-positive button-block" style="margin-top:10px" ng-click="logoff()">退出登录</button>
+
+
+    </ion-content>
+    <div class="tabs">
+        <div class="tab-item tabs-icon-only icon icon-large ion-person"></div>
+        <div class="tab-item tabs-icon-only icon icon-large ion-bag"></div>
+        <div class="tab-item tabs-icon-only icon icon-large ion-gear-b" ng-click=""></div>
+    </div>
+</ion-view>

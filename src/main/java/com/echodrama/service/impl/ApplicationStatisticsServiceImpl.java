@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * To change this template use File | Settings | File Templates.
  */
 
-@Service("applicationStatisticsServiceImpl")
+@Service("applicationStatisticsService")
 public class ApplicationStatisticsServiceImpl implements ApplicationStatisticsService {
     @Autowired
     private HibernateStatisticsDao hibernateStatisticsDao;

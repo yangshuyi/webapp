@@ -1,4 +1,4 @@
-angular.module('rootApp', ['ionic', 'userModule'])
+angular.module('rootApp', ['ionic', 'userModule', 'dashboardModule'])
     .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider',
         function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
@@ -15,10 +15,25 @@ angular.module('rootApp', ['ionic', 'userModule'])
                 }
             }).state('dashboard', {
                 url: '/dashboard',
-                templateUrl: 'templates/dashboard.html',
-                controller: 'dashboardCtrl'
+                abstract: true,
+                templateUrl: 'templates/dashboard/dashboard.html',
+                params: {
+                    'userId': 0
+                }
+            }).state('editUserInfo', {
+                url: '/user/editUserInfo',
+                abstract: true,
+                templateUrl: 'templates/user/editUser.html',
+                params: {
+                    'userId': 0
+                }
             });
 
             $urlRouterProvider.otherwise("/user/login");
-            console.log("done1");
+
+
+            $ionicConfigProvider.platform.ios.tabs.style('standard');  // 参数可以是: standard | striped
+            $ionicConfigProvider.platform.ios.tabs.position('bottom');
+            $ionicConfigProvider.platform.android.tabs.style('standard');  // 参数可以是: standard | striped
+            $ionicConfigProvider.platform.android.tabs.position('bottom');
         }]);

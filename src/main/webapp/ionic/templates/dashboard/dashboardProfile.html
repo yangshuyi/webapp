@@ -1,0 +1,47 @@
+<ion-view>
+    <ion-content class="scroll-content">
+        <div class="row padding">
+            <h2 class="col" style="margin-bottom: 0px;">{{userInfo.userName}}</h2>
+
+            <button class="col-bottom button button-small light positive-bg" style="width:75px;">风险等级</button>
+            <div class="col-bottom padding-horizontal"><span>{{dashboardModel.riskLevelDisp}}</span>级</div>
+            <button class="col-bottom button button-small light positive-bg" style="width:75px;"> 积分</button>
+            <div class="col-bottom padding-horizontal"><span>{{dashboardModel.scoreDisp}}</span>分</div>
+        </div>
+        <div class="stable-bg">
+            <div class="row">
+                <h2 class="col padding-horizontal" style="margin-top: 10px;">{{dashboardModel.earningInYesterdayDisp}}</h2>
+
+                <h2 class="col padding-horizontal">{{dashboardModel.rank}}</h2>
+            </div>
+            <div class="row">
+                <p class="col padding-horizontal">昨日收益（元）</p>
+
+                <p class="col padding-horizontal">排名</p>
+            </div>
+        </div>
+        <div class="stable-bg" style="margin-top:10px; height:200px;">
+
+        </div>
+        <div class="padding stable-bg" style="margin-top:10px;">
+            <div class="row">
+                <h2 class="col padding-horizontal" style="margin-top: 10px;">{{dashboardModel.cashDisp}}</h2>
+
+                <h2 class="col padding-horizontal">{{dashboardModel.earningTotalDisp}}</h2>
+            </div>
+            <div class="row">
+                <p class="col padding-horizontal">本金（元）</p>
+
+                <p class="col padding-horizontal">累计收益（元）</p>
+            </div>
+        </div>
+        <div class="row padding stable-bg" style="margin-top:10px;" ng-click="navProdOwnedPage()">
+            <div class="col col-center">持有产品 共<span>{{dashboardModel.prodOwnedCountDisp}}</span>笔投资</div>
+            <span class="col-center icon icon-large padding-horizontal"
+                  ng-class="{true:'ion-arrow-graph-up-right assertive', false: 'ion-arrow-graph-down-right balanced'}[dashboardModel.earningPercent>0]"></span>
+            <span class="col-center padding-horizontal" ng-class="{true:'assertive', false: 'balanced'}[dashboardModel.earningPercent>0]">{{dashboardModel.earningPercentDisp}}</span>
+            <span class="col-center icon icon-large ion-chevron-right padding-horizontal"></span>
+        </div>
+
+    </ion-content>
+</ion-view>

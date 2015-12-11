@@ -10,7 +10,6 @@ angular.module('userModule').controller('userForgetPasswordCtrl', ['$scope', '$s
                 $interval(function () {
                     $scope.forgetPasswordModel.timeCountDown--;
                 }, 1000, 30);
-
             });
         };
 
@@ -26,9 +25,7 @@ angular.module('userModule').controller('userForgetPasswordCtrl', ['$scope', '$s
         };
 
         $scope.navBack = function () {
-            //$window.history.back();
             $ionicHistory.goBack();
-
         };
 
 

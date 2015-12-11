@@ -1,22 +1,51 @@
-angular.module('userModule').controller('userLoginCtrl', ['$scope', '$ionicPopup', '$state', 'userService',
-    function ($scope, $ionicPopup, $state, userService) {
+angular.module('userModule').controller('userLoginCtrl', ['$scope', '$ionicPopup', '$state', '$q', 'userService',
+    function ($scope, $ionicPopup, $state, $q, userService) {
 
         $scope.navToForgetPassword = function () {
-            var errorMsg = userService.validateMobileNo($scope.loginModel);
-            if (errorMsg) {
-                $scope.showErrorMsg(errorMsg);
-                return;
-            }
-
-            $state.go('userForgetPassword', {'mobileNo': $scope.loginModel.mobileNo});
+            userService.validateMobileNo($scope.loginModel)
+                .then(function (result) {
+                    if (!result.status) {
+                        $scope.showErrorMsg(result.msg);
+                        return;
+                    }
+                    $state.go('userForgetPassword', {'mobileNo': $scope.loginModel.mobileNo});
+                });
         };
 
+        $scope.login = function () {
+            userService.validateMobileNo($scope.loginModel)
+                .then(function (result) {
+                    if (!result.status) {
+                        $scope.showErrorMsg(result.msg).then(function (res) {
+                        });
+                    }
+                    return userService.validatePassword($scope.loginModel);
+                })
+                .then(function (result) {
+
+                    if (!result.status) {
+                        $scope.showErrorMsg(result.msg);
+                    }
+
+                    return userService.validateLogin($scope.loginModel);
+                })
+                .then(function (result) {
+                    if (!result.status) {
+                        $scope.showErrorMsg(result.msg);
+                        return false;
+                    }
+
+
+                    return $state.go('dashboard.profile', {'mobileNo': result.data});
+                });
+
+
+        }
+
         $scope.showErrorMsg = function (msg) {
-            $ionicPopup.alert({
+            return $ionicPopup.alert({
                 title: 'Hint',
                 template: msg
-            }).then(function (res) {
-                console.log(res);
             });
         };
 
