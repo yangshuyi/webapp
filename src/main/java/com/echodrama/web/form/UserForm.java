@@ -1,4 +1,4 @@
-package com.echodrama.form;
+package com.echodrama.web.form;
 
 public class UserForm extends QueryForm {
     private String unitCode;

@@ -27,58 +27,6 @@ public class User extends BaseModel {
         super();
     }
 
-    public User(UserPojo pojo) {
-        super(pojo);
-
-        if (pojo == null) {
-            return;
-        }
-
-        this.unitId = pojo.getUnitId();
-        this.name = pojo.getName();
-        this.password = pojo.getPassword();
-        this.lastLoginTime = pojo.getLastLoginTime();
-        this.disabled = pojo.isDisabled();
-    }
-
-    public static User fromPojo(UserPojo pojo) {
-        User user = new User(pojo);
-
-        if (pojo.getEmployee() != null) {
-            user.setEmployee(new Employee(pojo.getEmployee()));
-        } else {
-            user.setEmployee(null);
-        }
-
-        return user;
-    }
-
-    public UserPojo toPojo(UserPojo pojo) {
-        super.toPojo(pojo);
-
-        if (StringUtility.isValueChanged(unitId, pojo.getUnitId())) {
-            pojo.setUnitId(unitId);
-        }
-
-        if (StringUtility.isValueChanged(name, pojo.getName())) {
-            pojo.setName(name);
-        }
-
-        if (StringUtility.isValueChanged(password, pojo.getPassword())) {
-            pojo.setPassword(password);
-        }
-
-        if (StringUtility.isValueChanged(lastLoginTime, pojo.getLastLoginTime())) {
-            pojo.setLastLoginTime(lastLoginTime);
-        }
-
-        if (StringUtility.isValueChanged(disabled, pojo.isDisabled())) {
-            pojo.setDisabled(disabled);
-        }
-
-        return pojo;
-    }
-
     public String getUnitId() {
         return unitId;
     }

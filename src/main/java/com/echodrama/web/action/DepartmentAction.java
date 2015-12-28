@@ -1,6 +1,6 @@
-package com.echodrama.action;
+package com.echodrama.web.action;
 
-import com.echodrama.form.DepartmentForm;
+import com.echodrama.web.form.DepartmentForm;
 import com.echodrama.service.DepartmentService;
 import com.echodrama.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;

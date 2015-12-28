@@ -1,4 +1,4 @@
-package com.echodrama.form;
+package com.echodrama.web.form;
 
 public class DepartmentQueryForm extends QueryForm {
     private String name;

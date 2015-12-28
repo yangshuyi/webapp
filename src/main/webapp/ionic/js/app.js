@@ -1,6 +1,9 @@
-angular.module('rootApp', ['ionic', 'userModule', 'dashboardModule'])
-    .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider',
-        function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+angular.module('rootApp', ['ionic', 'common.component', 'common.utils', 'userModule', 'dashboardModule'])
+    .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', '$httpProvider',
+        function ($stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
+
+               $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';
+                $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
             $stateProvider.state('userLogin', {
                 url: '/user/login',

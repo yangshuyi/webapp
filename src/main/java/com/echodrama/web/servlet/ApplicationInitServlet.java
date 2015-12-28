@@ -1,4 +1,4 @@
-package com.echodrama.servlet;
+package com.echodrama.web.servlet;
 
 import com.echodrama.service.DemoDataService;
 import org.springframework.web.context.support.WebApplicationContextUtils;

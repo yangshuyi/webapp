@@ -1,4 +1,4 @@
-package com.echodrama.action;
+package com.echodrama.web.action;
 
 import com.echodrama.service.DemoDataService;
 import org.springframework.beans.factory.annotation.Autowired;

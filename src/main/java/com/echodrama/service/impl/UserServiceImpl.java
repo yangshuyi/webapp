@@ -13,17 +13,12 @@ import com.echodrama.pojo.UnitPojo;
 import com.echodrama.pojo.UserPojo;
 import com.echodrama.service.UserService;
 import com.echodrama.utility.MD5Utility;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
-    //    @Autowired
-    //    private MemcachedClient memcachedClient;
-
-    @Autowired
-    private UnitDao unitDao;
-
     @Autowired
     private UserDao userDao;
 
@@ -35,22 +30,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User login(String unitCode, String name, String password) throws Exception {
+    public User login(String name, String password) throws Exception {
 
         String encyptPassword = MD5Utility.getMD5String(password);
 
-        UnitPojo unitPojo = unitDao.getUnitByCode(unitCode);
-        if (unitPojo == null) {
-            throw new Exception("Could not find Unit by Code [" + unitCode + "]");
-        }
 
-        UserPojo userPojo = userDao.getUserByLoginParam(unitPojo.getId(), name, encyptPassword);
+        UserPojo userPojo = userDao.getUserByLoginParam(name, encyptPassword);
         if (userPojo == null) {
             throw new Exception("Could not login user by name [" + name + "] and password [" + password + "]");
         }
 
-        User user = User.fromPojo(userPojo);
-        user.setUnit(Unit.fromPojo(unitPojo));
+        User user = new User();
+        BeanUtils.copyProperties(userPojo, user);
 
         return user;
     }

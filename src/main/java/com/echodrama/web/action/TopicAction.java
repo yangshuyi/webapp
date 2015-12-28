@@ -1,10 +1,9 @@
-package com.echodrama.action;
+package com.echodrama.web.action;
 
 import java.util.List;
 
-import com.echodrama.form.JSONMsg;
+import com.echodrama.web.form.JSONMsg;
 import com.echodrama.model.Topic;
-import com.echodrama.mongo.collection.TopicDoc;
 import com.echodrama.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

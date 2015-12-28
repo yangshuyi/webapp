@@ -1,6 +1,9 @@
-package com.echodrama.action;
+package com.echodrama.web.action;
 
-import com.echodrama.form.JSONMsg;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.echodrama.web.form.JSONMsg;
 import com.echodrama.model.User;
 import com.echodrama.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -20,7 +24,7 @@ public class UserAction extends BaseAction {
 
     private UserService userService;
 
-    @RequestMapping(value = "register", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public
     @ResponseBody
     JSONMsg register(@RequestBody User userParam) {
@@ -35,30 +39,29 @@ public class UserAction extends BaseAction {
 
     }
 
-    @RequestMapping("login")
-    public void login() {
-//        Map<String, Object> dataMap = new HashMap<String, Object>();
-//        try {
-//            User user = userService.login(userForm.getUnitCode(), userForm.getName(), userForm.getPassword());
-//
-//            dataMap.put("user", user);
-//            super.writeJson(dataMap);
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//            super.writeJsonErrorMessage(ex);
-//        }
+    @RequestMapping(value="/login")
+    public
+    @ResponseBody
+    Map<String, Object> login(@RequestParam String mobileNo, @RequestParam String encyptPassword) {
+        Map<String, Object> dataMap = new HashMap<String, Object>();
+        try {
+            User user = userService.login(mobileNo, encyptPassword);
+            dataMap.put("user", user);
+            return buildSuccessMap(dataMap);
+        } catch (Exception ex) {
+            return buildFailureMap(dataMap, ex);
+        }
     }
 
-
-    @RequestMapping("loadNavigator")
-    public void loadNavi() {
-//        try {
-//            List<NavigatorModule> modules = userService.getNavigatorModules();
-//            super.writeJson(modules);
-//        } catch (Exception ex) {
-//            super.writeJsonErrorMessage(ex);
-//        }
-
+    @RequestMapping("/loadNavigator")
+    public
+    @ResponseBody Map<String, Object> loadNavi() {
+        Map<String, Object> dataMap = new HashMap<String, Object>();
+        try {
+            return buildSuccessMap(dataMap);
+        } catch (Exception ex) {
+            return buildFailureMap(dataMap, ex);
+        }
     }
 
     public UserService getUserService() {

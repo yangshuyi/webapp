@@ -1,6 +1,6 @@
-package com.echodrama.action;
+package com.echodrama.web.action;
 
-import com.echodrama.form.UserForm;
+import com.echodrama.web.form.UserForm;
 import com.echodrama.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

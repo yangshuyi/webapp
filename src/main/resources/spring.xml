@@ -10,28 +10,7 @@
     <context:property-placeholder location="classpath:config.properties"/>
 
     <!-- Scans the classpath of this application for @Components to deploy as beans -->
-    <context:component-scan base-package="com.echodrama.action,com.echodrama.service,com.echodrama.mongo.*,com.echodrama.dao"/>
-
-    <!-- Configures the @Controller programming model -->
-    <mvc:annotation-driven/>
-
-    <!--<bean class="org.springframework.web.servlet.annotation.AnnotationMethodHandlerAdapter">-->
-    <!--<property name="messageConverters">-->
-    <!--<list>-->
-    <!--<ref bean="jsonHttpMessageConverter"/>-->
-
-    <!--</list>-->
-    <!--</property>-->
-    <!--</bean>-->
-    <!--<bean id="jsonHttpMessageConverter"-->
-    <!--class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">-->
-    <!--<property name="supportedMediaTypes" value="charset=utf-8"/>-->
-    <!--</bean>-->
-    <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-    <!--<property name="prefix" value=""/>-->
-    <!--<property name="suffix" value=""/>-->
-    <!--<property name="contentType" value="text-html;charset=utf-8"/>-->
-    <!--</bean>-->
+    <context:component-scan base-package="com.echodrama.service,com.echodrama.mongo.*,com.echodrama.dao"/>
 
 </beans>
 

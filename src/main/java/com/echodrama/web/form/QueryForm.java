@@ -1,4 +1,4 @@
-package com.echodrama.form;
+package com.echodrama.web.form;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;

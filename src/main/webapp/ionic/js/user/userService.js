@@ -1,5 +1,5 @@
-angular.module('userModule').factory('userService', ['$q',
-    function ($q) {
+angular.module('userModule').factory('userService', ['$q', '$ionicPopup', '$http', 'md5',
+    function ($q, $ionicPopup, $http, md5) {
         var defaultResult = {status: true, msg: '', data: null};
 
         var validateMobileNo = function (loginModel) {
@@ -9,10 +9,17 @@ angular.module('userModule').factory('userService', ['$q',
             var result = _.clone(defaultResult);
             if (!loginModel.mobileNo) {
                 result.status = false;
-                result.msg = "Please enter mobile no";
-            }
+                result.msg = 'Please enter mobile no';
 
-            deferred.resolve(result);
+                $ionicPopup.alert({
+                    title: 'Hint',
+                    template: result.msg
+                }).then(function(){
+                    deferred.resolve(result);
+                });
+            }else{
+                deferred.resolve(result);
+            }
             return promise;
         };
 
@@ -24,9 +31,16 @@ angular.module('userModule').factory('userService', ['$q',
             if (!loginModel.password) {
                 result.status = false;
                 result.msg = "Please enter password";
-            }
 
-            deferred.resolve(result);
+                $ionicPopup.alert({
+                    title: 'Hint',
+                    template: result.msg
+                }).then(function(){
+                    deferred.resolve(result);
+                });
+            }else{
+                deferred.resolve(result);
+            }
             return promise;
         };
 
@@ -39,17 +53,51 @@ angular.module('userModule').factory('userService', ['$q',
             if (loginModel.mobileNo != loginModel.password) {
                 result.status = false;
                 result.msg = "用户信息有误";
-            } else {
-                result.data = {"userId": 1001, "userName": "superyang_xp", "mobileNo": loginModel.mobileNo};
+                $ionicPopup.alert({
+                    title: 'Hint',
+                    template: result.msg
+                }).then(function(){
+                    deferred.resolve(result);
+                });
+            }else{
+                deferred.resolve(result);
             }
+            return promise;
+        };
 
-            deferred.resolve(result);
+        var doLogin = function(loginModel){
+
+            var deferred = $q.defer();
+            var promise = deferred.promise;
+
+            var result = _.clone(defaultResult);
+
+            var url = '/user/login.do';
+            var param = 'mobileNo='+loginModel.mobileNo+"&encyptPassword="+md5.md5(loginModel.password);
+            $http.post(url, param, {'Content-Type': 'application/x-www-form-urlencoded'}).then(function(response){
+                response = response.data;
+                if(response.result == 'success'){
+                    _.merge(result.data, response.data);
+                    deferred.resolve(result);
+                }else{
+                    result.status = false;
+                    result.msg = response.message;
+
+                    $ionicPopup.alert({
+                        title: 'Hint',
+                        template: result.msg
+                    }).then(function(){
+                        deferred.resolve(result);
+                    });
+                }
+            });
             return promise;
         };
 
         return {
             validateMobileNo: validateMobileNo,
             validatePassword: validatePassword,
-            validateLogin: validateLogin
+            validateLogin: validateLogin,
+            doLogin: doLogin
         }
     }]);

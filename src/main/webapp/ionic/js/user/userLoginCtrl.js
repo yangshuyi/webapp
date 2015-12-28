@@ -15,39 +15,34 @@ angular.module('userModule').controller('userLoginCtrl', ['$scope', '$ionicPopup
         $scope.login = function () {
             userService.validateMobileNo($scope.loginModel)
                 .then(function (result) {
-                    if (!result.status) {
-                        $scope.showErrorMsg(result.msg).then(function (res) {
-                        });
+                    if(result.status==false) {
+                        return result;
                     }
                     return userService.validatePassword($scope.loginModel);
                 })
                 .then(function (result) {
-
-                    if (!result.status) {
-                        $scope.showErrorMsg(result.msg);
+                    if(result.status==false) {
+                        return result;
                     }
-
                     return userService.validateLogin($scope.loginModel);
                 })
                 .then(function (result) {
-                    if (!result.status) {
-                        $scope.showErrorMsg(result.msg);
-                        return false;
+                    if(result.status==false) {
+                        return result;
                     }
-
-
+                    return userService.doLogin($scope.loginModel);
+                })
+                .then(function (result) {
+                    if(result.status==false) {
+                        return result;
+                    }
+                    return userService.doLogin($scope.loginModel);
                     return $state.go('dashboard.profile', {'mobileNo': result.data});
                 });
 
 
-        }
-
-        $scope.showErrorMsg = function (msg) {
-            return $ionicPopup.alert({
-                title: 'Hint',
-                template: msg
-            });
         };
+
 
         $scope.init = function () {
             $scope.loginModel = {};

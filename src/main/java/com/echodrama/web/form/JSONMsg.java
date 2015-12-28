@@ -1,4 +1,4 @@
-package com.echodrama.form;
+package com.echodrama.web.form;
 
 import java.util.HashMap;
 import java.util.Map;

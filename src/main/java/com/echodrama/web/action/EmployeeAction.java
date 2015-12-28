@@ -1,6 +1,6 @@
-package com.echodrama.action;
+package com.echodrama.web.action;
 
-import com.echodrama.form.EmployeeForm;
+import com.echodrama.web.form.EmployeeForm;
 import com.echodrama.service.CodeService;
 import com.echodrama.service.DepartmentService;
 import com.echodrama.service.EmployeeService;

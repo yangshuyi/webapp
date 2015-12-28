@@ -9,7 +9,7 @@ public interface UserService {
 
     public User register(User newUser) throws Exception;
 
-    public User login(String unitId, String name, String password) throws Exception;
+    public User login(String name, String password) throws Exception;
 
     public List<NavigatorModule> getNavigatorModules() throws Exception;
 }
